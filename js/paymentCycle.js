@@ -11,7 +11,7 @@ function PaymentCycle(gov, provider, prefix) {
     this.provider = provider;
     this.prefix = prefix;
     this.paymentCycle = 27000;
-    this.proposalMaturity = 2700; // ~(60*24*3)/2.6 = about three days
+    this.proposalMaturity = 2700;
     this.budgetCycles = 24;
 
     this.selectedStartIndex = 0;
@@ -59,7 +59,7 @@ PaymentCycle.prototype.getBlockTimestamp = function(block) {
     var blocks = block - this.blockHeight;
     var now = Math.floor(Date.now());
 
-    return (now + (blocks * (90 * 1000))); // 155 seconds per block x 1000 = ms per block
+    return (now + (blocks * (90 * 1000))); // 90 seconds per block x 1000 = ms per block
 };
 
 PaymentCycle.prototype.getTimeDifference = function(opts, start, end) {
